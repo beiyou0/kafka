@@ -1,0 +1,11 @@
+2017-12-20 00:49:14.118,[INFO],>Propagating to Archive - EventId: 00000000000082961556  BOEventId: 00000000000026888983  Order: 0060881026  SalesOrg: 0412
+2017-12-20 00:49:14.119,[INFO],<Stored Procedure processing complete - EventId: 00000000000082961556  BOEventId: 00000000000026888983  Order: 0060881026  SalesOrg: 04122017-12-21 16:22:59.860,[INFO],<Stored Procedure processing complete - EventId: 111111  BOEventId: 111111  Order: 111111  SalesOrg: 111111
+2017-12-21 16:23:14.865,[INFO],<Stored Procedure processing complete - EventId: 111111  BOEventId: 111111  Order: 111111  SalesOrg: 111111
+2017-12-21 16:23:29.870,[INFO],<Stored Procedure processing complete - EventId: 111111  BOEventId: 111111  Order: 111111  SalesOrg: 111111
+2017-12-21 16:23:44.874,[INFO],<Stored Procedure processing complete - EventId: 111111  BOEventId: 111111  Order: 111111  SalesOrg: 111111
+2017-12-21 16:23:59.878,[INFO],<Stored Procedure processing complete - EventId: 111111  BOEventId: 111111  Order: 111111  SalesOrg: 111111
+2017-12-21 16:24:14.882,[INFO],<Stored Procedure processing complete - EventId: 111111  BOEventId: 111111  Order: 111111  SalesOrg: 111111
+2017-12-21 16:24:29.888,[INFO],<Stored Procedure processing complete - EventId: 111111  BOEventId: 111111  Order: 111111  SalesOrg: 111111
+2017-12-21 16:24:44.892,[INFO],<Stored Procedure processing complete - EventId: 111111  BOEventId: 111111  Order: 111111  SalesOrg: 111111
+2017-12-21 16:24:59.896,[INFO],<Stored Procedure processing complete - EventId: 111111  BOEventId: 111111  Order: 111111  SalesOrg: 111111
+2017-12-21 16:25:14.901,[INFO],<Stored Procedure processing complete - EventId: 111111  BOEventId: 111111  Order: 111111  SalesOrg: 111111

@@ -1,0 +1,67 @@
+group 'com.ibm.cio'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    final SLF4J_VERSION = '1.7.25'
+    final LOGBACK_VERSION = '1.2.3'
+
+    //	logging spring cleaning - use slf4j instead of commons-logging
+    runtime "org.slf4j:jcl-over-slf4j:$SLF4J_VERSION"
+    runtime "ch.qos.logback:logback-classic:$LOGBACK_VERSION"
+    compile "org.slf4j:slf4j-api:$SLF4J_VERSION"
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.apache.kafka', name: 'kafka-clients', version: '1.0.0'
+    compile group: 'dom4j', name: 'dom4j', version: '1.6.1'
+}
+
+task wrapper(type: Wrapper) { gradleVersion = '3.5' }
+
+//processResources {
+//    exclude '**/'
+//}
+
+//jar {
+////    from sourceSets.main.output.classesDir
+//    manifest {
+//        attributes 'Main-Class': 'com.ibm.cio.kafka.LogProducer'
+//    }
+//    destinationDir = file('build/libs/logproducer')
+//}
+
+task sourceJar(type: Jar, dependsOn: compileJava) {
+    from sourceSets.main.output.classesDir
+    exclude 'LogSvr.class'
+    exclude 'LogView.class'
+    manifest {
+        attributes 'Main-Class': 'com.ibm.cio.kafka.LogProducer'
+        attributes 'Class-Path': './ ' + configurations.runtime.collect {'lib/' + it.getName()}.join(' ')
+    }
+
+    destinationDir = file('build/libs/logproducer')
+}
+
+task copyJars(type: Copy) {
+    from configurations.runtime
+    destinationDir = file('build/libs/logproducer/lib')
+}
+
+task copyConf(type: Copy, dependsOn: processResources) {
+    from sourceSets.main.output.resourcesDir
+    destinationDir = file('build/libs/logproducer')
+}
+
+task zipPJ(type: Zip, dependsOn:[clean, sourceJar, copyJars, copyConf]) {
+    archiveName = 'logproducer.zip'
+    from 'build/libs/logproducer'
+    destinationDir = file('build/libs')
+}
